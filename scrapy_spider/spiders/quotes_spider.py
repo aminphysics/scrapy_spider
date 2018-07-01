@@ -9,14 +9,13 @@ class QuotesSpiderSpider(scrapy.Spider):
     def parse(self, response):
         quotes = response.css('.author::text').extract()
         texts = response.css('.text::text').extract()
-       
+        
         for item in zip(quotes,texts):
-                #create a dictionary to store the scraped info
-                scraped_info = {
-                'Authors' : item[0],
-                'Quote' : item[1],
+            #create a dictionary to store the scraped info
+            scraped_info = {
+                'Authors' : quotes,
+                'Quote' : texts,
             }
-            
-            #yield or give the scraped info to scrapy
-                yield scraped_info
-
+                
+                #yield or give the scraped info to scrapy
+            yield scraped_info

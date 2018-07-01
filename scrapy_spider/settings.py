@@ -14,9 +14,14 @@ BOT_NAME = 'scrapy_spider'
 SPIDER_MODULES = ['scrapy_spider.spiders']
 NEWSPIDER_MODULE = 'scrapy_spider.spiders'
 #Export as CSV Feed
-FEED_FORMAT = "csv"
-FEED_URI = "reddit.csv"
+#FEED_FORMAT = "csv"
+#FEED_URI = "reddit.csv"
+ITEM_PIPELINES = {'scrapyapperyio.ApperyIoPipeline' : 300}
 
+APPERYIO_DB_ID = '5b345dd10f0d315b44c951d5'
+APPERYIO_USERNAME = 'root'
+APPERYIO_PASSWORD = 'amin1369'
+APPERYIO_COLLECTION_NAME = 'scrapy_spider'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapy_spider (+http://www.yourdomain.com)'
 
